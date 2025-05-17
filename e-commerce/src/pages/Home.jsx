@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Hero from '../component/Layout/Hero'
 import GenderCollectionSection from '../component/Products/GenderCollectionSection'
-// import NewArrival from '../component/Products/NewArrival'
+import NewArrival from '../component/Products/NewArrival'
 import ProductDetails from '../component/Products/ProductDetails'
 import ProductGrid from '../component/Products/ProductGrid'
 import FeaturedCollectoin from '../component/Products/FeaturedCollectoin'
@@ -44,7 +44,7 @@ const Home = () => {
     <div className='p-4'>
         <Hero/>
         <GenderCollectionSection/>
-        {/* <NewArrival/> */}
+        <NewArrival/>
 
         {/* Best Seller */}
 
