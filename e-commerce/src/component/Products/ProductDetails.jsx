@@ -80,7 +80,8 @@ const ProductDetails = ({productId}) => {
     if(error){
         return <p>Error: {error}</p>
     }
- 
+
+
   return (
     <div className='p-6 '>
         {selectedProduct && (
@@ -103,7 +104,7 @@ const ProductDetails = ({productId}) => {
             {/* Main Image */}
             <div className='md:w-1/2'>
             <div className='mb-4'>
-                <img src={mainImage }
+                <img src={mainImage || "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.architecturaldigest.com%2Fstory%2Fi-test-drove-lamborghinis-dollar600000-car-heres-what-i-thought-of-their-most-powerful-car-ever&psig=AOvVaw2UTu2njAi3ZsHJWfcaH7Ya&ust=1747604196297000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKihu4e7q40DFQAAAAAdAAAAABAE" }
                  alt="Main Product"
                  className='w-80 h-auto object-cover rounded-lg' />
             </div>
