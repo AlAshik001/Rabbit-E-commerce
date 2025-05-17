@@ -28,7 +28,7 @@ useEffect(() => {
     fetchNewArrivals();
 }, []);
 
-console.log(newArrivals[1])
+
 
 const handleMousedown =(e)=>{
     setIsDragging(true)

@@ -15,6 +15,7 @@ export const fetchAllOrders = createAsyncThunk(
                 }
             }
         );
+        console.log( "Admin-orders",respone)
         return respone.data;
         } catch (error) {
             return rejectWithValue(error.respone.data);
@@ -82,7 +83,7 @@ export const deleteOrder = createAsyncThunk(
             })
             .addCase(fetchAllOrders.fulfilled, (state, action)=>{
                 state.loading = false;
-                state.error = action.payload;
+                state.orders = action.payload;
                 state.totalOrders = action.payload.length;
 
                 // calculate total sales

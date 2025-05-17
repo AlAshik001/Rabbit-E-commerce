@@ -7,17 +7,18 @@ import axios from "axios";
 // Async Thunk to fetch user orders
 
 export const fetchUserOrders = createAsyncThunk(
-    "orders/fetchUserOrder", 
+    "orders/fetchUserOrders", 
     async (_, {rejectWithValue})=>{
         try {
             const response = await axios.get(
-                `${import.meta.env.VITE_BACKENT_URL}/api/orders/my-orders`,
+                `${import.meta.env.VITE_BACKEND_URL}/api/orders/my-orders`,
             {
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem("userToken")}`
                 }
             }
         );
+        console.log( "In console.log",response)
         return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -65,11 +66,11 @@ const orderSlice = createSlice({
         })
         .addCase(fetchUserOrders.fulfilled, (state, action)=>{
             state.loading = false;
-            state.error = action.payload;
+            state.orders = action.payload;
         })
         .addCase(fetchUserOrders.rejected, (state, action)=>{
             state.loading = false;
-            state.error = action.payload.message;
+            state.error = action.payload?.message;
         })
 
         // Fetch order details

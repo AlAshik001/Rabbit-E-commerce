@@ -12,6 +12,7 @@ export const fetchUser = createAsyncThunk(
                 }
             }
         );
+        console.log("fetch", response.data)
         return response.data;
 });
 
@@ -27,6 +28,7 @@ export const addUser = createAsyncThunk("admin/addUser",async (userData, {reject
                 }
             }
         );
+        console.log("AddUser",response)
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data);
@@ -89,15 +91,15 @@ const adminSlice = createSlice({
             state.loading = false;
             state.error= action.error.message;
         })
-        .addCase(updateUser.fulfilled, (state, action)=>{
-            const updatedUser = action.payload;
-            const userIndex = state.users.findIndex(
-                (user) => user._id === updatedUser._id
-            );
-            if(userIndex !== -1) {
-                state.users[userIndex] = updatedUser
-            }
-        })
+        .addCase(updateUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.users = state.users.map((user) => {
+                    if (user?._id === action.payload?._id) {
+                        return action.payload;
+                    }
+                    return user;
+                });
+            })
         .addCase(deleteUser.fulfilled, (state, action)=>{
             state.users = state.users.filter(
                 (user)=> user._id !== action.payload);
