@@ -9,6 +9,6 @@
         }
     ],
     "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
+        {"source": "/api/:path*", "destination": "https://rabbit-e-commerce-rc5e.vercel.app/api/:path*"}
     ]
 }
