@@ -77,6 +77,8 @@ const scroll = (direction) =>{
         }
     }, [newArrivals])
 
+    console.log(newArrivals)
+
   return (
     
     <section id='bar'>
@@ -109,7 +111,7 @@ const scroll = (direction) =>{
          onMouseMove={handleMousemove}
          onMouseUp={handleMouseUporLeave}
          onMouseLeave={handleMouseUporLeave}>
-            {newArrivals.map((product)=>{
+            {newArrivals?.map((product)=>{
                return <div key={product._id} className='min-w-[45%] sm:min-w-[40%] lg:min-w-[20%] relative'>
                     <img src={product?.images[0]?.url}
                      alt={product.images[0]?.altText || product.name} className=' w-full h-[300px] rounded-lg'
