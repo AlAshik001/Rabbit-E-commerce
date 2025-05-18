@@ -24,7 +24,7 @@ router.post("/", protect, async (req, res) =>{
         return res.status(400).json({message: "No items in checkout"})
      }
 
-     console.log(req.user)
+     console.log("In checkoutRoutes",req.user)
 
      try {
         // Create a new checkout session 

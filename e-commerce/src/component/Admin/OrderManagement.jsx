@@ -22,6 +22,9 @@ const OrderManagement = () => {
 
     if(loading) return <p>Loading...</p>
     if(error) return <p>Error: {error}</p>
+
+    console.log("Orders", orders)
+    
   return (
     <div className=' max-w-7xl mx-auto p-6'>
         <h2 className='text-2xl font-bold mb-6'>Order Management</h2>

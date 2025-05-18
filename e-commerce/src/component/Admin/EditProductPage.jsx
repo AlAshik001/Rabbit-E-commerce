@@ -138,7 +138,7 @@ function EditProductPage() {
             <div className='mb-6'>
                 <label className=' block font-semibold mb-2'>SKU</label>
                 <input 
-                type="number" 
+                type="text" 
                 name='sku' 
                 value={productData.sku} 
                 onChange={handleChange}

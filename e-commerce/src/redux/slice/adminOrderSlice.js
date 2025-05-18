@@ -94,7 +94,7 @@ export const deleteOrder = createAsyncThunk(
             })
             .addCase(fetchAllOrders.rejected, (state, action)=>{
                 state.loading = false;
-                state.error = action.payload.message;
+                state.error = action.payload?.message || "Failed to orders fetch";
             })
             //Update Order Status
             .addCase(updateOrderStatus.fulfilled, (state, action)=>{

@@ -14,6 +14,7 @@ export const fetchAdminProducts = createAsyncThunk("adminProducts/fetchProducts"
             Authorization: USER_TOKEN
         },
     });
+    console.log("AdminProduct",response.data)
     return response.data;
 }
 );
@@ -81,7 +82,7 @@ const adminProductSlice = createSlice({
         })
         .addCase(fetchAdminProducts.rejected, (state, action)=>{
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.payload?.message || "Filed to fetch products";
         })
         // create product 
         .addCase(createProduct.fulfilled, (state, action)=>{

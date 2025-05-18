@@ -11,7 +11,8 @@ const router = express.Router();
 
 router.get("/", protect, admin, async (req, res)=> {
     try {
-        const orders = await Order.find({}).populate("user", "name email");
+        const orders = await Order.find({}).populate("user", "name email").sort({createdAt: -1});
+        if(!orders) return res.status(404).json({message: "No oders found"})
         res.json(orders);
     } catch (error) {
         console.error(error);
